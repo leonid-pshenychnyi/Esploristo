@@ -10,6 +10,10 @@ using System.Windows.Forms;
 
 namespace Esploristo
 {
+    static class Shared
+    {
+        public static int Delay = 60000;
+    }
     public partial class MainForm : Form
     {
         public class Note
@@ -47,19 +51,21 @@ namespace Esploristo
             //DictionaryJP.Add(new JapaneseNote(){ Word = "時", Translation = "время", Onyomi = "ジ", Kunyomi = "とき" });
             //DictionaryJP.Add(new JapaneseNote(){ Word = "事", Translation = "дело", Onyomi = "ジ", Kunyomi = "こと" });
             //DictionaryJP.Add(new JapaneseNote(){ Word = "木", Translation = "дерево", Onyomi = "モク、\nボク", Kunyomi = "き" });
-            DictionaryJP.Add(new JapaneseNote(){ Word = "自", Translation = "сам", Onyomi = "ジ", Kunyomi = "みずから" });
-            DictionaryJP.Add(new JapaneseNote(){ Word = "皮", Translation = "кожа", Onyomi = "ヒ", Kunyomi = "かわ" });
-            DictionaryJP.Add(new JapaneseNote(){ Word = "彼", Translation = "он", Onyomi = "ヒ", Kunyomi = "かれ" });
-            DictionaryJP.Add(new JapaneseNote(){ Word = "門", Translation = "ворота", Onyomi = "モン", Kunyomi = "かど" });
+            DictionaryJP.Add(new JapaneseNote() { Word = "自", Translation = "сам", Onyomi = "ジ", Kunyomi = "みずから" });
+            DictionaryJP.Add(new JapaneseNote() { Word = "皮", Translation = "кожа", Onyomi = "ヒ", Kunyomi = "かわ" });
+            DictionaryJP.Add(new JapaneseNote() { Word = "彼", Translation = "он", Onyomi = "ヒ", Kunyomi = "かれ" });
+            DictionaryJP.Add(new JapaneseNote() { Word = "門", Translation = "ворота", Onyomi = "モン", Kunyomi = "かど" });
         }
         static Form1 form;
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
+        static bool Run;
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (form != null)
+            {
+                form.Close();
+                Run = false;
+            }
             CheckForIllegalCrossThreadCalls = false;
             form = new Form1();
             form.Show();
@@ -70,17 +76,17 @@ namespace Esploristo
             await Task.Run(() =>
             {
                 int i = 0;
-                while (true)
+                while (Run)
                 {
                     form.ChangeWords(DictionaryJP[i]);
 
                     form.Show();
-                    while (form.Opacity < 1)
+                    while (form.Opacity < 1 && Run)
                     {
                         form.Opacity += 0.01;
                         System.Threading.Thread.Sleep(19);
                     }
-                    while (form.Opacity > 0)
+                    while (form.Opacity > 0 && Run)
                     {
                         form.Opacity -= 0.01;
                         System.Threading.Thread.Sleep(19);
@@ -94,14 +100,22 @@ namespace Esploristo
                     {
                         i = 0;
                     }
-                    System.Threading.Thread.Sleep(60000);
+                    System.Threading.Thread.Sleep(Shared.Delay);
                 }
+                form.Close();
             });
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e)
         {
+            Run = true;
             OpChanger();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var set = new Settings();
+            set.ShowDialog();
         }
     }
 }

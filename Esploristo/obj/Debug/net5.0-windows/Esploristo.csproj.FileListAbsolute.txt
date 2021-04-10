@@ -26,7 +26,6 @@ C:\Prog\Projects\Esploristo\Esploristo\bin\Debug\net5.0-windows\ref\Esploristo.d
 C:\Prog\Projects\Esploristo\Esploristo\bin\Debug\net5.0-windows\Esploristo.pdb
 C:\Prog\Projects\Esploristo\Esploristo\obj\Debug\net5.0-windows\Esploristo.csprojAssemblyReference.cache
 C:\Prog\Projects\Esploristo\Esploristo\obj\Debug\net5.0-windows\Esploristo.Form1.resources
-C:\Prog\Projects\Esploristo\Esploristo\obj\Debug\net5.0-windows\Esploristo.MainForm.resources
 C:\Prog\Projects\Esploristo\Esploristo\obj\Debug\net5.0-windows\Esploristo.csproj.GenerateResource.cache
 C:\Prog\Projects\Esploristo\Esploristo\obj\Debug\net5.0-windows\Esploristo.GeneratedMSBuildEditorConfig.editorconfig
 C:\Prog\Projects\Esploristo\Esploristo\obj\Debug\net5.0-windows\Esploristo.AssemblyInfoInputs.cache
@@ -36,3 +35,5 @@ C:\Prog\Projects\Esploristo\Esploristo\obj\Debug\net5.0-windows\Esploristo.dll
 C:\Prog\Projects\Esploristo\Esploristo\obj\Debug\net5.0-windows\ref\Esploristo.dll
 C:\Prog\Projects\Esploristo\Esploristo\obj\Debug\net5.0-windows\Esploristo.pdb
 C:\Prog\Projects\Esploristo\Esploristo\obj\Debug\net5.0-windows\Esploristo.genruntimeconfig.cache
+C:\Prog\Projects\Esploristo\Esploristo\obj\Debug\net5.0-windows\Esploristo.Settings.resources
+C:\Prog\Projects\Esploristo\Esploristo\obj\Debug\net5.0-windows\Esploristo.Shared.resources
